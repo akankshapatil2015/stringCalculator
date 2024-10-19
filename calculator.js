@@ -4,8 +4,8 @@ function add(numbers) {
     return 0;
   }
 
-  // Split the numbers by comma
-  const numArray = numbers.split(",");
+  // Split the numbers by comma or newlines using a regex
+  const numArray = numbers.split(/[\n,]/);
 
   //Convert the strings to numbers and sum them
   const sum = numArray.reduce((total, num) => {

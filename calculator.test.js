@@ -19,3 +19,8 @@ test('returns 3 when the string is "1,2"', () => {
 test('returns 10 for "1,2,3,4"', () => {
   expect(add("1,2,3,4")).toBe(10);
 });
+
+// testing for new lines between numbers
+test('returns 15 for "1\\n2\\n3\\n4\\n5"', () => {
+  expect(add("1\n2\n3\n4\n5")).toBe(15);
+});
