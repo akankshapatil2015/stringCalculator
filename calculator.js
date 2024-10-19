@@ -4,8 +4,23 @@ function add(numbers) {
     return 0;
   }
 
-  // Split the numbers by comma or newlines using a regex
-  const numArray = numbers.split(/[\n,]/);
+  let delimiter = /[\n,]/; // Default delimiters: comma and newline
+
+  //Check if the string starts with a custom delimiter definition
+  if (numbers.startsWith("//")) {
+    // Extract the custom delimiter by parsing the string
+    const delimiterEndIndex = numbers.indexOf("\n");
+    let customDelimiter = numbers.substring(2, delimiterEndIndex);
+
+    // Escape special characters in the custom delimiter
+    customDelimiter = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+    delimiter = new RegExp(customDelimiter); // Create a regex for the custom delimiter
+    numbers = numbers.substring(delimiterEndIndex + 1); // Remove the delimiter definition from the input string
+  }
+
+  //Split the numbers by the defined delimiter(s)
+  const numArray = numbers.split(delimiter);
 
   //Convert the strings to numbers and sum them
   const sum = numArray.reduce((total, num) => {

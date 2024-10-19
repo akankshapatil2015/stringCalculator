@@ -24,3 +24,8 @@ test('returns 10 for "1,2,3,4"', () => {
 test('returns 15 for "1\\n2\\n3\\n4\\n5"', () => {
   expect(add("1\n2\n3\n4\n5")).toBe(15);
 });
+
+//testing for different delimiters
+test('returns 15 for "//***\\n1***2***3***4***5"', () => {
+  expect(add("//***\n1***2***3***4***5")).toBe(15);
+});
