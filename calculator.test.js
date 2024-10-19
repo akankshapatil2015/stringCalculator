@@ -29,3 +29,14 @@ test('returns 15 for "1\\n2\\n3\\n4\\n5"', () => {
 test('returns 15 for "//***\\n1***2***3***4***5"', () => {
   expect(add("//***\n1***2***3***4***5")).toBe(15);
 });
+
+//negative numbers test
+test("throws an exception for negative numbers", () => {
+  expect(() => add("1,-2,3")).toThrow("Negative numbers not allowed: -2");
+});
+
+test("throws an exception for multiple negative numbers", () => {
+  expect(() => add("1,-2,3,-4")).toThrow(
+    "Negative numbers not allowed: -2, -4"
+  );
+});
