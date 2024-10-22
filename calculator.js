@@ -35,4 +35,5 @@ function add(numbers) {
   return sum;
 }
 
-module.exports = add;
+//No need for module.exports in the browser environment, Uses only when testing with jest
+// module.exports = add;
