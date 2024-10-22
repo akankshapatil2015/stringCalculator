@@ -1,3 +1,13 @@
+function calculate() {
+  const numbers = document.getElementById("numbersInput").value;
+  try {
+    const result = add(numbers); // Calls the add function from calculator.js
+    document.getElementById("result").innerText = "Sum: " + result;
+  } catch (error) {
+    document.getElementById("result").innerText = error.message;
+  }
+}
+
 function add(numbers) {
   //Check if the input is an empty string
   if (numbers === "") {
